@@ -29,23 +29,23 @@ shinyUI(fluidPage(
                      "Seed.surface.area",
                      "Protein.content")
       ),
-      titlePanel("Size"),
-      
-      # Sidebar with sliders that demonstrate various available
-      # options
- 
-      sliderInput("decimal", "", 
-                      min = 0, max = 5, value = 0.5, step= 0.1)
-        ),
                   
       radioButtons("ytrait",
                     "Choose a trait to display on the y-axis:",
                     c("Seed.length", "Seed.width", "Seed.volume", "Seed.surface.area", "Protein.content")
-      )),
+      ),
     
+    titlePanel("Size"),
+    
+    # Sidebar with sliders that demonstrate various available
+    # options
+    
+    sliderInput("decimal", "", 
+                min = 0, max = 5, value = 0.5, step= 0.1)
+    ),
     # Show a plot of the generated distribution
-    mainPanel(plotOutput("boxPlot")
-
+    mainPanel(plotOutput("boxPlot"))
+    
     )
   )
 )
