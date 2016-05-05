@@ -37,7 +37,7 @@ shinyUI(fluidPage(
       
       radioButtons("color",
                    "Choose a trait sort by:",
-                   c("Region", "Pericarp.color", "Seed.color", "Region" )
+                   c("Region", "Pericarp.color", "Seed.color")
       ),
     
     titlePanel("Size"),
