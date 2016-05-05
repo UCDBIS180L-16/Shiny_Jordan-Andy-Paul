@@ -13,7 +13,7 @@ library(shiny)
 shinyUI(fluidPage(
   
   # Application title
-  titlePanel("Rice"),
+  titlePanel("Rice Across the World"),
   
   
   helpText(),
