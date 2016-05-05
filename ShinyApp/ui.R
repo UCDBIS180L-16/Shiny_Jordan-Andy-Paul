@@ -26,7 +26,7 @@ shinyUI(fluidPage(
       # Sidebar with sliders that demonstrate various available
       # options
  
-      sliderInput("decimal", "Decimal:", 
+      sliderInput("decimal", "", 
                       min = 0, max = 5, value = 0.5, step= 0.1)
         ),
       radioButtons("trait", #the input variable that the value will go into
