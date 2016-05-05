@@ -10,15 +10,13 @@
 library(shiny)
 
 # Define UI for application that draws a histogram
-shinyUI(fluidPage( #create the overall page
+shinyUI(fluidPage(
   
   # Application title
-  titlePanel("Iris Data"),
+  titlePanel("Rice"),
   
-  # Some helpful information
-  helpText("This application creates a boxplot to show difference between",
-           "iris species.  Please use the radio box below to choose a trait",
-           "for plotting"),
+  
+  helpText(),
   
   # Sidebar with a radio box to input which trait will be plotted
   sidebarLayout(
@@ -30,8 +28,16 @@ shinyUI(fluidPage( #create the overall page
                      "Seed.volume",
                      "Seed.surface.area",
                      "Protein.content")
-                   ),
+      ),
+      titlePanel("Size"),
       
+      # Sidebar with sliders that demonstrate various available
+      # options
+ 
+      sliderInput("decimal", "Decimal:", 
+                      min = 0, max = 5, value = 0.5, step= 0.1)
+        ),
+                  
       radioButtons("ytrait",
                     "Choose a trait to display on the y-axis:",
                     c("Seed.length", "Seed.width", "Seed.volume", "Seed.surface.area", "Protein.content")
@@ -39,8 +45,9 @@ shinyUI(fluidPage( #create the overall page
     
     # Show a plot of the generated distribution
     mainPanel(plotOutput("boxPlot")
+
     )
   )
-))
+)
 
 
