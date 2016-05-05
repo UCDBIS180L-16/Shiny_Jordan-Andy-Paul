@@ -41,7 +41,7 @@ shinyServer(function(input, output) {
                  )
     )
     # draw the boxplot for the specified trait
-    pl + geom_point(size=input$decimal)
+    pl + geom_point(size=input$decimal) + geom_smooth(method=lm,se=FALSE)
   })
 })
 
