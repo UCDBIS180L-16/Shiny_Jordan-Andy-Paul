@@ -10,18 +10,21 @@
 library(shiny)
 library(ggplot2)
 library(reshape2)
-RiceData<-read.csv("/home/bis180l_local/MEGA/Assignment_4_Anderson.Jordan/RiceSNPData/RiceDiversity.44K.MSU6.Phenotypes.csv",header=T)
+RiceData<-read.csv("/home/bis180l_local/Shiny_Jordan-Andy-Paul/RiceSNPData/RiceDiversity.44K.MSU6.Phenotypes.csv",header=T)
 Rice.melt<-melt(RiceData,id.vars="Region")
 
 # Define server logic required to draw a boxplot
 shinyServer(function(input, output) {
-  
-  # Expression that generates a boxplot. The expression is
-  # wrapped in a call to renderPlot to indicate that:
-  #
-  #  1) It is "reactive" and therefore should re-execute automatically
-  #     when inputs change
-  #  2) Its output type is a plot
+  sliderValues<- reactive({
+    data.frame(
+      Name = c("Size"),
+      Value= as.character(c(input$size)),
+      stringsAsFactors = FALSE
+    )
+  })
+  output$Values<-renderTable({
+    sliderValues()
+  })
   Rice.melt.ss<-subset(RiceData,variable=input$trait)
   output$boxPlot <- renderPlot({
     
@@ -31,12 +34,12 @@ shinyServer(function(input, output) {
                  #correctly.  The other variables need to be quoted
                  aes_string(x=input$trait,
                             y=input$trait,
-                            fill="Region"
+                            color="Region"
                  )
     )
     
     # draw the boxplot for the specified trait
-    pl + geom_point()
+    pl + geom_point(size=input$decimal)
   })
 })
 
