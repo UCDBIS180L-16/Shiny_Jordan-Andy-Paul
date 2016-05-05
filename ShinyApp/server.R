@@ -12,7 +12,7 @@ library(ggplot2)
 library(reshape2)
 
 #RiceData<-read.csv("/home/handy/Bioinformatics_Lab_BIS180L/Shiny_Jordan-Andy-Paul/RiceSNPData/RiceDiversity.44K.MSU6.Phenotypes.csv",header=T)
-RiceData<-read.csv("/home/bis180l_local/Shiny_Jordan-Andy-Paul/RiceSNPData/RiceDiversity.44K.MSU6.Phenotypes.csv",header=T)
+#RiceData<-read.csv("~/MEGAsync/Assignment_4_Zaman.Paul/RiceSNPData/RiceDiversity.44K.MSU6.Phenotypes.csv",header=T)
 
 Rice.melt<-melt(RiceData,id.vars="Region")
 
@@ -37,8 +37,7 @@ shinyServer(function(input, output) {
                  #correctly.  The other variables need to be quoted
                  aes_string(x=input$xtrait,
                             y=input$ytrait,
-                            color="Region"
-                 )
+                            color=input$color                 )
     )
     # draw the boxplot for the specified trait
     pl + geom_point(size=input$decimal) + geom_smooth(method=lm,se=FALSE)

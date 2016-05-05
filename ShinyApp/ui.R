@@ -34,6 +34,11 @@ shinyUI(fluidPage(
                     "Choose a trait to display on the y-axis:",
                     c("Seed.length", "Seed.width", "Seed.volume", "Seed.surface.area", "Protein.content")
       ),
+      
+      radioButtons("color",
+                   "Choose a trait sort by:",
+                   c("Region", "Pericarp.color", "Seed.color", "Region" )
+      ),
     
     titlePanel("Size"),
     
