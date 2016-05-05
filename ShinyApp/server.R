@@ -10,7 +10,10 @@
 library(shiny)
 library(ggplot2)
 library(reshape2)
+
+#RiceData<-read.csv("/home/handy/Bioinformatics_Lab_BIS180L/Shiny_Jordan-Andy-Paul/RiceSNPData/RiceDiversity.44K.MSU6.Phenotypes.csv",header=T)
 RiceData<-read.csv("/home/bis180l_local/Shiny_Jordan-Andy-Paul/RiceSNPData/RiceDiversity.44K.MSU6.Phenotypes.csv",header=T)
+
 Rice.melt<-melt(RiceData,id.vars="Region")
 
 # Define server logic required to draw a boxplot
@@ -32,12 +35,11 @@ shinyServer(function(input, output) {
     pl <- ggplot(data = Rice.melt.ss,
                  #Use aes_string below so that input$trait is interpreted
                  #correctly.  The other variables need to be quoted
-                 aes_string(x=input$trait,
-                            y=input$trait,
+                 aes_string(x=input$xtrait,
+                            y=input$ytrait,
                             color="Region"
                  )
     )
-    
     # draw the boxplot for the specified trait
     pl + geom_point(size=input$decimal)
   })
