@@ -39,20 +39,22 @@ shinyUI(fluidPage(
                    "Choose a trait sort by:",
                    c("Region", "Pericarp.color", "Seed.color")
       ),
+      
+      checkboxInput(inputId="regression", "Regression Lines"),
+      
+      titlePanel("Size"),
     
-    titlePanel("Size"),
+      # Sidebar with sliders that demonstrate various available
+      # options
     
-    # Sidebar with sliders that demonstrate various available
-    # options
-    
-    sliderInput("decimal", "", 
+      sliderInput("decimal", "", 
                 min = 0, max = 5, value = 0.5, step= 0.1)
-    ),
-    # Show a plot of the generated distribution
-    mainPanel(plotOutput("boxPlot"))
+      ),
+      # Show a plot of the generated distribution
+      mainPanel(plotOutput("boxPlot"))
+    )#end sidebarLayout
     
-    )
-  )
-)
+  )#end fluidPage
+)#end ShinyUI
 
 
