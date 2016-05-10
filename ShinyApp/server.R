@@ -14,7 +14,7 @@ library(reshape2)
 
 
 
-RiceData<-read.csv("../RiceSNPData/RiceDiversity.44K.MSU6.Phenotypes.csv",header=T)
+RiceData<-read.csv("RiceSNPData/RiceDiversity.44K.MSU6.Phenotypes.csv",header=T)
 
 Rice.melt<-melt(RiceData,id.vars="Region")
 
