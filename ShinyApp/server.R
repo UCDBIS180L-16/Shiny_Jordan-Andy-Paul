@@ -14,10 +14,6 @@ library(reshape2)
 
 RiceData<-read.csv("/home/bis180l_local/Shiny_Jordan-Andy-Paul/RiceSNPData/RiceDiversity.44K.MSU6.Phenotypes.csv",header=T)
 
-#RiceData<-read.csv("/home/handy/Bioinformatics_Lab_BIS180L/Shiny_Jordan-Andy-Paul/RiceSNPData/RiceDiversity.44K.MSU6.Phenotypes.csv",header=T)
-
-#RiceData<-read.csv("~/MEGAsync/Assignment_4_Zaman.Paul/RiceSNPData/RiceDiversity.44K.MSU6.Phenotypes.csv",header=T)
-
 Rice.melt<-melt(RiceData,id.vars="Region")
 
 # Define server logic required to draw a boxplot

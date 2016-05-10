@@ -16,7 +16,7 @@ shinyUI(fluidPage(
   titlePanel("Rice Across the World"),
   
   
-  helpText(),
+  helpText("Visualize the relationships between different rice seed traits in a variety of different rice strains."),
   
   # Sidebar with a radio box to input which trait will be plotted
   sidebarLayout(
@@ -42,7 +42,7 @@ shinyUI(fluidPage(
       
       checkboxInput(inputId="regression", "Regression Lines"),
       
-      titlePanel("Size"),
+      titlePanel("Size of plot dots"),
     
       # Sidebar with sliders that demonstrate various available
       # options
